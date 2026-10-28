@@ -23,9 +23,23 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Iniciar aplicação
+        run: |
+          npm start > server.log 2>&1 &
+          echo $! > server.pid
+
+      - name: Aguardar aplicação
+        run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://localhost:3000/ > /dev/null; then
+              echo "Aplicação disponível!"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "A aplicação não iniciou. Logs:"
+          cat server.log
+          exit 1
+
       - name: Executar testes E2E
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm start
-          wait-on: 'http://localhost:3000'
-          browser: electron
+        run: npx cypress run

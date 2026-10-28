@@ -1,0 +1,29 @@
+{
+  "name": "testes-e2e-cypress",
+  "version": "1.0.0",
+  "description": "Atividade prática de testes E2E com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "test:e2e": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Letstar12/testes-e2e-cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Letstar12/testes-e2e-cypress/issues"
+  },
+  "homepage": "https://github.com/Letstar12/testes-e2e-cypress#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "cypress": "^16.2.1"
+  }
+}
